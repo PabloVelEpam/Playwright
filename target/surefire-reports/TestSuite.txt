@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 17.72 s <<< FAILURE! - in TestSuite
+Tests.loginTest  Time elapsed: 1.153 s  <<< FAILURE!
+java.lang.AssertionError: It's not at Login Page expected [true] but found [false]
+	at Tests.loginTest(Tests.java:37)
+
+Tests.signUpTest  Time elapsed: 1.229 s  <<< FAILURE!
+com.microsoft.playwright.impl.TargetClosedError: 
+Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError: Target page, context or browser has been closed
+    at DispatcherConnection.dispatch (C:\Users\PABLO_~1\AppData\Local\Temp\playwright-java-2578193707363238413\package\lib\server\dispatchers\dispatcher.js:375:15)
+}
+Call log:
+-   - waiting for locator("//a[(text())='Sign up']")
+-     - locator resolved to <a class="nav-link " href="#/register"> Sign up</a>
+-   - attempting click action
+-     - waiting for element to be visible, enabled and stable
+
+	at Tests.signUpTest(Tests.java:16)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: 
+Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError: Target page, context or browser has been closed
+    at DispatcherConnection.dispatch (C:\Users\PABLO_~1\AppData\Local\Temp\playwright-java-2578193707363238413\package\lib\server\dispatchers\dispatcher.js:375:15)
+}
+Call log:
+-   - waiting for locator("//a[(text())='Sign up']")
+-     - locator resolved to <a class="nav-link " href="#/register"> Sign up</a>
+-   - attempting click action
+-     - waiting for element to be visible, enabled and stable
+
+
+Tests.tearDown  Time elapsed: 1.329 s  <<< FAILURE!
+com.microsoft.playwright.PlaywrightException: Playwright connection closed
+
