@@ -23,11 +23,13 @@
 hs_err_pid*
 replay_pid*
 
-*.idea/
+*/.idea/
+
+target/maven-status/maven-compiler-plugin/
 
 Maven*.xml
 
-target/surefire-reports/*
+target/surefire-reports/
 
 *emailable-report.html
 
