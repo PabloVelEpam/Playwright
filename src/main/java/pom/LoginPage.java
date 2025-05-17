@@ -4,6 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 import lombok.extern.slf4j.Slf4j;
+import utils.LogHelper;
 
 @Slf4j
 public class LoginPage extends BaseTest
@@ -19,7 +20,7 @@ public class LoginPage extends BaseTest
 	{
 		if (page == null)
 		{
-			log.error("Page object cannot be null");
+			LogHelper.error("Page object cannot be null");
 			throw new IllegalArgumentException("Page object cannot be null");
 		}
 		this.page = page;
@@ -32,37 +33,25 @@ public class LoginPage extends BaseTest
 	@Override
 	public boolean isAtCorrectPage()
 	{
-		page.waitForLoadState(LoadState.NETWORKIDLE);
+		waitForNetworkIdle(page);
 		boolean isVisible = sigInTitle.isVisible();
 		if (isVisible)
 		{
-			log.debug("Sign in title is visible. User is at the correct page");
-		}
+			LogHelper.debug("Sign in title is visible. User is at the correct page");		}
 		else
 		{
-			log.warn("Sign in title is not visible. User might not be at the correct page");
-		}
+			LogHelper.warn("Sign in title is not visible. User might not be at the correct page");		}
 		return isVisible;
 	}
 
 	public void signIn(String email, String password)
 	{
-		if (email == null || email.isEmpty())
-		{
-			log.error("Email cannot be null or empty");
-			throw new IllegalArgumentException("Email cannot be null or empty");
-		}
-		if (password == null || password.isEmpty())
-		{
-			log.error("Password cannot be null or empty");
-			throw new IllegalArgumentException("Password cannot be null or empty");
-		}
-		emailField.fill(email);
-		log.debug("Email field filled with -> {}", email);
-		passwordField.fill(password);
-		log.debug("Password field filled with -> {}", password);
-		loginButton.click();
-		log.debug("Clicked on login button");
+		validateField(email, "Email");
+		validateField(password, "Password");
+
+		fillField(emailField, email);
+		fillField(passwordField, password);
+		clickOnElement(loginButton);
 	}
 
 }

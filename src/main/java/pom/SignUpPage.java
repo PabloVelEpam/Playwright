@@ -4,6 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 import lombok.extern.slf4j.Slf4j;
+import utils.LogHelper;
 
 @Slf4j
 public class SignUpPage extends BaseTest
@@ -20,7 +21,7 @@ public class SignUpPage extends BaseTest
 	{
 		if (page == null)
 		{
-			log.error("Page object cannot be null");
+			LogHelper.error("Page object cannot be null");
 			throw new IllegalArgumentException("Page object cannot be null");
 		}
 		this.page = page;
@@ -34,11 +35,11 @@ public class SignUpPage extends BaseTest
 	@Override
 	public boolean isAtCorrectPage()
 	{
-		page.waitForLoadState(LoadState.NETWORKIDLE);
+		waitForNetworkIdle(page);
 		boolean isVisible = sigUpTitle.isVisible();
 		if (isVisible)
 		{
-			log.debug("Sign up title is visible. User is at the correct page");
+			LogHelper.debug("Sign up title is visible. User is at the correct page");
 		}
 		else
 		{
@@ -49,29 +50,14 @@ public class SignUpPage extends BaseTest
 
 	public void signUp(String user, String email, String password)
 	{
-		if (user == null || user.isEmpty())
-		{
-			log.error("Username cannot be null or empty");
-			throw new IllegalArgumentException("Username cannot be null or empty");
-		}
-		if (email == null || email.isEmpty())
-		{
-			log.error("Email cannot be null or empty");
-			throw new IllegalArgumentException("Email cannot be null or empty");
-		}
-		if (password == null || password.isEmpty())
-		{
-			log.error("Password cannot be null or empty");
-			throw new IllegalArgumentException("Password cannot be null or empty");
-		}
-		userField.fill(user);
-		log.debug("User field filled with -> {}", user);
-		emailField.fill(email);
-		log.debug("Email field filled with -> {}", email);
-		passwordField.fill(password);
-		log.debug("Password field filled with -> {}", password);
-		signUpBtn.click();
-		log.debug("Clicked on sign up button");
+		validateField(user, "Username");
+		validateField(email, "Email");
+		validateField(password, "Password");
+
+		fillField(userField, user);
+		fillField(emailField, email);
+		fillField(passwordField, password);
+		clickOnElement(signUpBtn);
 	}
 
 }
