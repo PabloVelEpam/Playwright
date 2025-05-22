@@ -3,9 +3,12 @@ package pom;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
+import lombok.extern.slf4j.Slf4j;
+import utils.LogHelper;
 
-
-public class LoginPage implements BaseTest {
+@Slf4j
+public class LoginPage extends BaseTest
+{
 
 	private Locator emailField;
 	private Locator passwordField;
@@ -13,7 +16,13 @@ public class LoginPage implements BaseTest {
 	private Locator sigInTitle;
 	private Page page;
 
-	public LoginPage(Page page) {
+	public LoginPage(Page page)
+	{
+		if (page == null)
+		{
+			LogHelper.error("Page object cannot be null");
+			throw new IllegalArgumentException("Page object cannot be null");
+		}
 		this.page = page;
 		this.sigInTitle = page.locator("//h1[text() = 'Sign in']");
 		this.emailField = page.locator("//input[@name='email']");
@@ -22,14 +31,27 @@ public class LoginPage implements BaseTest {
 	}
 
 	@Override
-	public boolean isAtCorrectPage() {
-		page.waitForLoadState(LoadState.NETWORKIDLE);
-		return sigInTitle.isVisible();
+	public boolean isAtCorrectPage()
+	{
+		waitForNetworkIdle(page);
+		boolean isVisible = sigInTitle.isVisible();
+		if (isVisible)
+		{
+			LogHelper.debug("Sign in title is visible. User is at the correct page");		}
+		else
+		{
+			LogHelper.warn("Sign in title is not visible. User might not be at the correct page");		}
+		return isVisible;
 	}
 
-	public void signIn(String user, String email, String password) {
-		emailField.fill(email);
-		passwordField.fill(password);
-		loginButton.click();
+	public void signIn(String email, String password)
+	{
+		validateField(email, "Email");
+		validateField(password, "Password");
+
+		fillField(emailField, email);
+		fillField(passwordField, password);
+		clickOnElement(loginButton);
 	}
+
 }

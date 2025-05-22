@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <!-- Appender para la consola -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1} - %m%n"/>
+        </Console>
+
+        <!-- Appender para el archivo logs/app.log -->
+        <File name="MyFile" fileName="logs/app.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1} - %m%n"/>
+        </File>
+
+        <!-- Appender para ReportPortal -->
+        <RPAppender name="ReportPortal">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"/>
+        </RPAppender>
+    </Appenders>
+
+    <Loggers>
+        <!-- Logger raíz, configura los niveles y dónde enviar los logs -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MyFile"/>
+            <AppenderRef ref="ReportPortal"/>
+        </Root>
+    </Loggers>
+</Configuration>

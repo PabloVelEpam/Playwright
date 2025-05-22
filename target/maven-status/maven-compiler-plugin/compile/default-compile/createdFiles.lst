@@ -1,0 +1,8 @@
+pom\LoginPage.class
+pom\WelcomePage.class
+pom\HomePage.class
+pom\SignUpPage.class
+utils\PlaywrightFactory.class
+pom\BaseTest.class
+utils\RandomGenerator.class
+utils\Hooks.class

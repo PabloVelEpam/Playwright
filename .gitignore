@@ -22,3 +22,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+*/.idea/
+*.iml
+
+target/maven-status/maven-compiler-plugin/
+
+Maven*.xml
+
+target/surefire-reports/
+
+*emailable-report.html
+
