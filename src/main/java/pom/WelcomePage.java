@@ -2,7 +2,6 @@ package pom;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.LoadState;
 import lombok.extern.slf4j.Slf4j;
 import utils.LogHelper;
 
@@ -24,6 +23,7 @@ public class WelcomePage extends BaseTest {
 	@Override
 	public boolean isAtCorrectPage() {
 		waitForNetworkIdle(page);
+
 		waitForVisibility(yourFeedButton);
 		boolean isVisible = yourFeedButton.isVisible();
 		if (isVisible) {
