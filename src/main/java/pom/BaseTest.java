@@ -8,22 +8,21 @@ import lombok.extern.slf4j.Slf4j;
 import utils.LogHelper;
 
 @Slf4j
-public abstract class BaseTest
+public  class BaseTest
 {
 
-	protected abstract boolean isAtCorrectPage();
-
-	protected static void waitForVisibility(Locator locator)
+	protected static boolean waitForVisibility(Locator locator)
 	{
 		try
 		{
 			locator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(5000));
 			log.debug("Locator is visible: {}", locator.toString());
+			return true;
 		}
 		catch (Exception e)
 		{
 			log.error("Timed out waiting for locator to become visible: {}", locator.toString());
-			throw e;
+			return false;
 		}
 	}
 

@@ -2,12 +2,11 @@ package pom;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.LoadState;
 import lombok.extern.slf4j.Slf4j;
 import utils.LogHelper;
 
 @Slf4j
-public class SignUpPage extends BaseTest
+public class SignUpPage extends BaseTest implements BasePage
 {
 
 	private Locator userField;
