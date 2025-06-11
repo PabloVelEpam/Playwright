@@ -27,19 +27,19 @@ pipeline {
         stage('Make executable') {
             steps {
                 echo 'Making executable...'
-                sh('chmod +x ./src/test/java/tests/Tests.java')
+                sh('javac ./src/test/java/tests/Tests.java')
             }
         }
         stage('Relative Path') {
             steps {
                 echo 'Relative Path Building..'
-                sh("./src/test/java/tests/Tests.java ${env.NUMBER}")
+                sh("javac ./src/test/java/tests/Tests.java ${env.NUMBER}")
             }
         }
         stage('Full Path') {
             steps {
                 echo 'Full Path Testing..'
-                sh("${env.WORKSPACE}/src/test/java/tests/Tests.java ${env.NUMBER}")
+                sh("javac ${env.WORKSPACE}/src/test/java/tests/Tests.java ${env.NUMBER}")
             }
         }
         stage('Report') {
