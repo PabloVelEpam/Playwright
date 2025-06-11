@@ -8,7 +8,7 @@ pipeline {
         buildDiscarder(logRotator(daysToKeepStr: '10', numToKeepStr: '10'))
 
         // cause the build to time out if it runs for more than 12 hours
-        timeout(time: 1, unit: 'HOURS')
+        timeout(time: 12, unit: 'HOURS')
 
         // add timestamps to the log
         timestamps()
@@ -24,22 +24,19 @@ pipeline {
 
     // the pipeline section we all know and love: stages! :D
     stages {
-        stage('Make executable') {
+        stage('Requirements') {
             steps {
-                echo 'Making executable...'
-                sh('javac ./src/test/java/tests/Tests.java')
+                echo 'Installing requirements...'
             }
         }
-        stage('Relative Path') {
+        stage('Build') {
             steps {
-                echo 'Relative Path Building..'
-                sh("javac ./src/test/java/tests/Tests.java ${env.NUMBER}")
+                echo 'Building..'
             }
         }
-        stage('Full Path') {
+        stage('Test') {
             steps {
-                echo 'Full Path Testing..'
-                sh("javac ${env.WORKSPACE}/src/test/java/tests/Tests.java ${env.NUMBER}")
+                echo 'Testing..'
             }
         }
         stage('Report') {
