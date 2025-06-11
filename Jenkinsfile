@@ -33,7 +33,7 @@ pipeline {
         stage('Relative Path') {
             steps {
                 echo 'Relative Path Building..'
-                sh("./test/java/tests/Tests.java ${env.NUMBER}")
+                sh("./src/test/java/tests/Tests.java ${env.NUMBER}")
             }
         }
         stage('Full Path') {
