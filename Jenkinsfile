@@ -27,7 +27,7 @@ pipeline {
         stage('Make executable') {
             steps {
                 echo 'Making executable...'
-                sh('chmod +x ./test/java/tests/Tests.java')
+                sh('chmod +x ./src/test/java/tests/Tests.java')
             }
         }
         stage('Relative Path') {
