@@ -1,0 +1,20 @@
+[
+  {
+    "articleTitle": "The Evolution of Automation Testing",
+    "description": "An overview of how automation testing has evolved over the last decade.",
+    "content": "Automation testing has rapidly grown to become a vital part of software development lifecycles. In this article, we will explore... (extend with full article content here)",
+    "tags": ["automation", "testing", "software development", "tools"]
+  },
+  {
+    "articleTitle": "A Beginner's Guide to Playwright",
+    "description": "Learn the basics of using Playwright for automated browser testing.",
+    "content": "Playwright is an open-source framework designed for efficient end-to-end testing. Starting with the installation process, this article guides new users through its main features...",
+    "tags": ["playwright", "testing", "beginner guide", "end-to-end testing"]
+  },
+  {
+    "articleTitle": "The Importance of Test Data in Automation",
+    "description": "Understanding how test data can make or break your testing framework.",
+    "content": "Test data is a crucial factor in any software testing strategy. Whether you opt for dynamically generated data or rely on pre-defined datasets, your framework depends on solid data management...",
+    "tags": ["test data", "automation", "frameworks", "management"]
+  }
+]

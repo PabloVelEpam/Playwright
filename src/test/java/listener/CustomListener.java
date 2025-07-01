@@ -2,22 +2,17 @@ package listener;
 
 import com.epam.reportportal.service.ReportPortal;
 import com.epam.reportportal.testng.ReportPortalTestNGListener;
-import com.epam.reportportal.utils.MimeTypeDetector;
 import com.microsoft.playwright.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.Listeners;
-import utils.LogHelper;
+import ui.pom.utils.PlaywrightContext;
+import ui.pom.utils.LogHelper;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Slf4j
 @Listeners(ReportPortalTestNGListener.class)
@@ -43,7 +38,7 @@ public class CustomListener implements ITestListener
 
 		try
 		{
-			Page page = utils.PlaywrightContext.getPage();
+			Page page = PlaywrightContext.getPage();
 			if (page != null)
 			{
 				String screenshotPath = "screenshots/" + result.getName() + ".png";
