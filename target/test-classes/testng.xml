@@ -3,11 +3,10 @@
 <suite name="Default Suite">
     <listeners>
         <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener"/>
-        <listener class-name="listener.CustomListener"/>
     </listeners>
     <test name="Test Suite">
         <classes>
-            <class name="tests.Tests"/>
+            <class name="pom.HomePage.Tests"/>
         </classes>
     </test>
 </suite>

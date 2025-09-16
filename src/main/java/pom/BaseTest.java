@@ -17,7 +17,7 @@ public abstract class BaseTest
 	{
 		try
 		{
-			locator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(5000));
+			locator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(10000));
 			log.debug("Locator is visible: {}", locator.toString());
 		}
 		catch (Exception e)

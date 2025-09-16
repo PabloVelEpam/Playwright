@@ -1,7 +1,5 @@
 package utils;
 
-import java.awt.*;
-
 import com.microsoft.playwright.*;
 
 

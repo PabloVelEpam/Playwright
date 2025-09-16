@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.8.0</version>
+            <version>7.7.1</version>
         </dependency>
 
         <!-- Playwright -->
@@ -75,13 +75,11 @@
             <artifactId>logger-java-log4j</artifactId>
             <version>5.2.3</version>
         </dependency>
-
-        <!-- Lombok -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.34</version>
-            <scope>compile</scope>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>agent-java-cucumber</artifactId>
+            <version>5.1.2</version> <!-- Ensure this is compatible -->
+            <scope>test</scope>
         </dependency>
 
         <!-- Logback -->
@@ -98,10 +96,14 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.34</version>
-            <scope>compile</scope>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.12.0</version> <!-- Replace with the latest version -->
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>7.12.0</version>
         </dependency>
     </dependencies>
 </project>
